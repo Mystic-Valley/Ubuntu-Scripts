@@ -1,0 +1,4 @@
+#! /bin/bash
+guake -n "JN" -e "cd ~/ML_Projects" &&
+guake -e "jupyter notebook"
+

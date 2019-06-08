@@ -1,0 +1,8 @@
+#!/bin/bash
+
+firefox https://www.hackerearth.com/practice/codemonk/ &
+codeblocks &
+/usr/bin/guake &
+sleep 2
+guake -n "CB" -e "cd ~/HE " & gedit /home/shushrut/HE/in
+

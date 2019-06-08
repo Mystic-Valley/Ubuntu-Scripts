@@ -1,0 +1,55 @@
+################################################################################################################
+1.  For quick update and upgrade : sudo apt update && sudo apt upgrade
+###############################################################################################################
+2. For removing lock from apt ---> 
+
+You can delete the lock file with the following command:
+
+sudo rm /var/lib/apt/lists/lock
+
+You may also need to delete the lock file in the cache directory:
+
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+ 
+source link=-----  https://askubuntu.com/questions/15433/unable-to-lock-the-administration-directory-var-lib-dpkg-is-another-process
+###############################################################################################################
+3. To force kill an application : 
+
+pidof (Application name)
+kill pid
+ex.          pidof firefox   ---- output ----2537
+             kill 2537            output--app force closed
+#################################################################################################################
+4. To get the list of installed packages:  
+1. (All At once): dpkg -l         
+2. (Not all at once): dpkg -l|more
+
+#######################################################################################################################
+5. To install and remove an application----->
+ 1. To install: sudo apt install (application name)
+ 2. To remove: sudo apt purge (application name)
+##########################################################################################################################
+6. Add ppa to repository list:
+1. To add:  sudo add-apt-repository ppa:PPA_Name/ppa
+2. To remove: sudo add-apt-repository --remove ppa:PPA_Name/ppa
+################################################################################################################################################
+
+Problem: IPv6 config enabled, to disable it:
+
+the computer believes it has IPv6-connectivity, whilst it in fact does not have it. This can be verified by trying the command ping6 www.google.com.
+
+You can disable IPv6 on Ubuntu, by running the following command. To enable IPv6 again,simply do rm /etc/sysctl.d/99-disable-ipv6.conf
+
+echo "net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1" | sudo tee /etc/sysctl.d/99-disable-ipv6.conf
+
+You can also create this file, using a text editor, and pasting the content
+
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+
+Then run sudo service procps reload to reload.
+#####################################################################################################################################################
